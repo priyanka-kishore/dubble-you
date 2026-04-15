@@ -13,15 +13,17 @@
 }
 
 .appName {
-  font-size: 26px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -1px;
   margin: 0;
 }
 
 .tagline {
   font-size: 13px;
-  margin-top: 2px;
+  font-weight: 400;
+  margin-top: 3px;
+  letter-spacing: 0.1px;
 }
 
 .gearWrap {
@@ -99,8 +101,9 @@
 }
 
 .emptyHeadline {
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
   margin: 0;
 }
 
@@ -112,15 +115,15 @@
   position: fixed;
   bottom: 28px;
   right: 20px;
-  width: 56px;
-  height: 56px;
+  width: 60px;
+  height: 60px;
   border-radius: 999px;
   font-size: 28px;
   font-weight: 300;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.22);
   border: none;
   line-height: 1;
 }

@@ -34,9 +34,10 @@
 }
 
 .name {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -0.3px;
 }
 
 .hint {

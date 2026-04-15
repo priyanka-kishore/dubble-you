@@ -91,10 +91,11 @@
 }
 
 .saveBtn {
-  border-radius: 10px;
+  border-radius: 999px;
   padding: 14px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.1px;
   border: none;
   margin-top: 4px;
   transition: opacity 150ms ease;
