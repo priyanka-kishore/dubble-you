@@ -1,0 +1,8 @@
+.clock {
+  font-size: clamp(52px, 14vw, 80px);
+  font-weight: 700;
+  letter-spacing: -2px;
+  transition: color 300ms ease;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}

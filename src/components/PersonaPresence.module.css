@@ -1,0 +1,48 @@
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.4; box-shadow: 0 0 16px var(--accent); }
+  50%       { opacity: 0.85; box-shadow: 0 0 32px var(--accent); }
+}
+
+@keyframes ringScale {
+  0%, 100% { transform: scale(1.0); }
+  50%       { transform: scale(1.04); }
+}
+
+.presence {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.ring {
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
+  border: 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation:
+    glowPulse 1200ms ease-in-out infinite,
+    ringScale 1200ms ease-in-out infinite;
+}
+
+.emoji {
+  font-size: 56px;
+  line-height: 1;
+}
+
+.name {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.hint {
+  font-style: italic;
+  font-size: 15px;
+  text-align: center;
+  transition: opacity 400ms ease;
+  max-width: 260px;
+}

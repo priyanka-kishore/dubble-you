@@ -1,0 +1,126 @@
+.page {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 24px 20px 16px;
+  border-bottom: 1px solid;
+}
+
+.appName {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+.tagline {
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.gearWrap {
+  position: relative;
+}
+
+.gear {
+  font-size: 20px;
+  padding: 4px;
+  background: none;
+  border: none;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.pickerBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+}
+
+.themePicker {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 11;
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  min-width: 90px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.themeOption {
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: left;
+  background: none;
+  border: none;
+}
+
+.themeOption:hover {
+  opacity: 0.75;
+}
+
+.main {
+  flex: 1;
+  padding: 20px;
+  padding-bottom: 100px; /* room for FAB */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: var(--grid-cols, 1fr 1fr);
+  gap: 14px;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 20px;
+  cursor: pointer;
+  gap: 12px;
+}
+
+.emptyEmoji {
+  font-size: 56px;
+  line-height: 1;
+}
+
+.emptyHeadline {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.emptySubtext {
+  font-size: 15px;
+}
+
+.fab {
+  position: fixed;
+  bottom: 28px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  font-size: 28px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border: none;
+  line-height: 1;
+}

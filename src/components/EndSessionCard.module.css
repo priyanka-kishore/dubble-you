@@ -1,0 +1,58 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.tooShort {
+  font-size: 15px;
+  font-style: italic;
+  margin: 0;
+}
+
+.noteInput {
+  width: 100%;
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 15px;
+  text-align: center;
+  background: none;
+  outline: none;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.save {
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  width: 100%;
+}
+
+.keepGoing {
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  border: 1px solid;
+  background: none;
+  width: 100%;
+}
+
+.discard {
+  background: none;
+  border: none;
+  font-size: 14px;
+  padding: 4px;
+}

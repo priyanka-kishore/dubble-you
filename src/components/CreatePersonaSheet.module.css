@@ -1,0 +1,105 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 100;
+  transition: opacity 300ms ease;
+}
+
+.sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 101;
+  border-radius: 22px 22px 0 0;
+  max-height: 92dvh;
+  overflow-y: auto;
+  transition: transform 300ms cubic-bezier(0.2, 1.4, 0.4, 1);
+}
+
+.handle {
+  width: 36px;
+  height: 4px;
+  border-radius: 999px;
+  margin: 12px auto 0;
+}
+
+.inner {
+  padding: 16px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.previewWrap {
+  pointer-events: none;
+  user-select: none;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+}
+
+.input {
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 15px;
+  outline: none;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.emojiGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+
+.emojiBtn {
+  font-size: 22px;
+  border-radius: 8px;
+  padding: 6px;
+  border: 2px solid transparent;
+  line-height: 1;
+  text-align: center;
+}
+
+.colorRow {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.colorDot {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: none;
+  transition: box-shadow 150ms ease;
+}
+
+.saveBtn {
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  margin-top: 4px;
+  transition: opacity 150ms ease;
+}
+
+.saveBtn:disabled {
+  cursor: default;
+}
