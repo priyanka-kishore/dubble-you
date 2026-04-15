@@ -4,6 +4,11 @@ import { getTotalXP, getLevel, getXPInLevel } from '../lib/utils'
 import type { Persona, Session } from '../types'
 import styles from './PersonaCard.module.css'
 
+const RING_SIZE = 88
+const STROKE = 5
+const RADIUS = (RING_SIZE - STROKE * 2) / 2
+const CIRCUMFERENCE = 2 * Math.PI * RADIUS
+
 interface Props {
   persona: Persona
   sessions: Session[]
@@ -18,7 +23,8 @@ export default function PersonaCard({ persona, sessions, isNew, onFocus, onView 
   const totalXP = getTotalXP(sessions, persona.id)
   const level = getLevel(totalXP)
   const xpInLevel = getXPInLevel(totalXP)
-  const pct = (xpInLevel / 30) * 100
+  const pct = xpInLevel / 30
+  const offset = CIRCUMFERENCE * (1 - pct)
   const cardBg = isDark ? color.darkCardBg : color.lightCardBg
 
   return (
@@ -39,11 +45,49 @@ export default function PersonaCard({ persona, sessions, isNew, onFocus, onView 
         LVL {level}
       </div>
 
-      {/* Emoji */}
-      <div className={styles.emoji}>{persona.emoji}</div>
+      {/* Progress ring with emoji inside */}
+      <div className={styles.ringWrap}>
+        <svg
+          width={RING_SIZE}
+          height={RING_SIZE}
+          className={styles.ring}
+        >
+          {/* Track */}
+          <circle
+            cx={RING_SIZE / 2}
+            cy={RING_SIZE / 2}
+            r={RADIUS}
+            fill="none"
+            stroke={color.accent + '22'}
+            strokeWidth={STROKE}
+          />
+          {/* Filled arc */}
+          <circle
+            cx={RING_SIZE / 2}
+            cy={RING_SIZE / 2}
+            r={RADIUS}
+            fill="none"
+            stroke={color.accent}
+            strokeWidth={STROKE}
+            strokeLinecap="round"
+            strokeDasharray={CIRCUMFERENCE}
+            strokeDashoffset={offset}
+            className={styles.ringArc}
+          />
+        </svg>
+        <span className={styles.ringEmoji}>{persona.emoji}</span>
+      </div>
+
+      {/* Total minutes */}
+      <div className={styles.totalWrap}>
+        <span className={styles.totalNum} style={{ color: palette.textPrimary }}>
+          {Math.floor(totalXP)}
+        </span>
+        <span className={styles.totalLabel} style={{ color: palette.textMuted }}>min</span>
+      </div>
 
       {/* Name & goal */}
-      <div className={styles.name} style={{ color: palette.textPrimary, fontFamily: 'var(--font-serif)' }}>
+      <div className={styles.name} style={{ color: palette.textPrimary }}>
         {persona.name}
       </div>
       {persona.goal && (
@@ -52,17 +96,6 @@ export default function PersonaCard({ persona, sessions, isNew, onFocus, onView 
         </div>
       )}
 
-      {/* XP bar */}
-      <div
-        className={styles.track}
-        style={{ backgroundColor: palette.surface2 }}
-      >
-        <div
-          className={styles.fill}
-          style={{ width: `${pct}%`, backgroundColor: color.accent }}
-        />
-      </div>
-
       {/* Actions */}
       <div className={styles.actions}>
         <button
@@ -70,7 +103,8 @@ export default function PersonaCard({ persona, sessions, isNew, onFocus, onView 
           style={{ backgroundColor: color.accent, color: '#fff' }}
           onClick={e => { e.stopPropagation(); onFocus() }}
         >
-          Focus Now
+          <span className={styles.focusBtnMain}>Focus Now</span>
+          <span className={styles.focusBtnSub}>{Math.ceil(30 - xpInLevel)} min to next level</span>
         </button>
         <button
           className={styles.viewBtn}

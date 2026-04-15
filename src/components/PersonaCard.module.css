@@ -34,19 +34,60 @@
   border-radius: 999px;
 }
 
-.emoji {
-  font-size: 40px;
-  line-height: 1;
+.ringWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
   margin-top: 4px;
-  /* leave room for badge */
-  padding-right: 48px;
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+  transform: rotate(-90deg);
+}
+
+.ringArc {
+  transition: stroke-dashoffset 600ms ease-out;
+}
+
+.ringEmoji {
+  font-size: 38px;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.totalWrap {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  margin-top: 2px;
+}
+
+.totalNum {
+  font-family: var(--font-mono);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.totalLabel {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
 }
 
 .name {
   font-size: 17px;
   font-weight: 700;
   letter-spacing: -0.3px;
-  margin-top: 4px;
+  margin-top: 2px;
   line-height: 1.2;
 }
 
@@ -59,18 +100,6 @@
   overflow: hidden;
 }
 
-.track {
-  height: 4px;
-  border-radius: 999px;
-  overflow: hidden;
-  margin-top: 4px;
-}
-
-.fill {
-  height: 100%;
-  border-radius: 999px;
-}
-
 .actions {
   display: flex;
   gap: 8px;
@@ -80,10 +109,26 @@
 .focusBtn {
   flex: 1;
   border-radius: 999px;
-  padding: 8px 0;
+  padding: 9px 0;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.focusBtnMain {
+  line-height: 1;
+}
+
+.focusBtnSub {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  opacity: 0.75;
+  line-height: 1;
 }
 
 .viewBtn {
