@@ -1,73 +1,110 @@
-# React + TypeScript + Vite
+# dubbleYOU
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A body-doubling focus app for ADHD brains. Create personas representing versions of yourself you're building — then focus alongside them as a timer runs. Personas gain XP from focus minutes and level up. Growth that's invisible in real life becomes visible here.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## What It Does
 
-## React Compiler
+- **Create personas** — give them a name, goal, emoji, and color theme
+- **Focus alongside them** — full-screen timer with your persona's presence
+- **Level up** — 1 focus minute = 1 XP, 30 XP per level (cap: 99)
+- **Session notes** — optional one-line note when you end a session
+- **Persists locally** — no accounts, no backend, just `localStorage`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+| Layer | Choice |
+|---|---|
+| Framework | React 19 + Vite |
+| Language | TypeScript (strict) |
+| Routing | React Router v7 |
+| State | React Context |
+| Storage | `localStorage` |
+| Styling | CSS Modules |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Installation & Usage
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+**Prerequisites:** Node.js 18+
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+```bash
+# Clone the repo
+git clone https://github.com/your-username/dubble-you.git
+cd dubble-you
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Install dependencies
+npm install
+
+# Start the dev server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The app runs at `http://localhost:5173` by default.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+**Using the app:**
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. **Create a persona** — tap the `+` on the home screen, pick a name, goal, emoji, and color
+2. **Open your persona** — tap their card to see their character sheet and session history
+3. **Start a focus session** — hit "Focus Now" to enter the full-screen timer
+4. **End the session** — optionally add a note, then save; XP is added automatically
+5. **Watch them level up** — the XP bar fills as you accumulate focus minutes
+
+All data is stored locally in your browser — no account needed.
+
+**Build for production:**
+
+```bash
+npm run build
 ```
+
+## Project Structure
+
+```
+src/
+├── pages/
+│   ├── Home.tsx              # "Your Party" — persona grid
+│   ├── PersonaDetail.tsx     # Character card + sessions + Focus Now
+│   └── Timer.tsx             # Full-screen body doubling experience
+├── components/
+│   ├── PersonaCard.tsx
+│   ├── CreatePersonaSheet.tsx
+│   ├── LevelBlock.tsx
+│   ├── SessionRow.tsx
+│   ├── TimerDisplay.tsx
+│   ├── PersonaPresence.tsx
+│   └── EndSessionCard.tsx
+├── constants/
+│   ├── theme.ts              # Color palettes and tokens
+│   └── data.ts               # Emoji options and timer hints
+├── context/
+│   ├── AppContext.tsx         # Personas + sessions state
+│   └── ThemeContext.tsx       # Light/dark/system theme
+├── lib/
+│   ├── storage.ts             # localStorage helpers
+│   └── utils.ts               # fmtTime, getLevel, getXP, uid, etc.
+└── types/
+    └── index.ts               # Persona, Session, ColorTheme types
+```
+
+## Leveling System
+
+- **1 focus minute = 1 XP**
+- **30 XP per level**
+- Levels are per-persona — each one grows independently
+- Level cap: 99
+
+## Color Themes
+
+| Theme | Feel |
+|---|---|
+| Amber | Creative, artistic |
+| Forest | Grounded, growth |
+| Ocean | Deep, analytical |
+| Plum | Mystical, intuitive |
+| Rust | Bold, energetic |
+| Jade | Balanced, calm |
+
+## V1 Scope
+
+**In:** create/view/delete personas, focus timer, XP leveling, session notes, light/dark mode, localStorage persistence.
+
+**Out (intentionally):** badges, streaks, session history view, notifications, onboarding, analytics, social/sharing, sounds, accounts/sync, level-up animations.

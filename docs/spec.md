@@ -9,7 +9,7 @@
 
 You create multiple "selves" — App Builder, Avid Reader, Gym Person — and when it's time to work, you select that self and let them sit with you. As you log focus sessions, that persona evolves: it levels up, looks more developed, and accumulates a history you can actually see. The big idea: **growth is invisible in real life. dubbleYOU makes it visible.**
 
-The Pokémon reference is intentional. Your personas are like creatures you're raising. The more time you invest, the more they evolve. You're not just building habits — you're building characters.
+Your personas are like creatures you're raising. The more time you invest, the more they evolve. You're not just building habits — you're building characters.
 
 ---
 
@@ -21,7 +21,6 @@ The Pokémon reference is intentional. Your personas are like creatures you're r
 | **Tagline** | focus with who you're becoming |
 | **Platform** | React web app first, Expo (iOS) port in Phase 2 |
 | **Tone** | Playful, warm, quietly encouraging — like a cozy RPG, not a productivity grind |
-| **Reference** | Pokémon meets a focus app. Collect and evolve your selves. |
 
 ---
 

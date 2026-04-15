@@ -2,7 +2,7 @@
 
 ## What This Is
 
-A body-doubling focus app for ADHD brains. You create personas representing versions of yourself you're building (e.g. "App Builder", "Avid Reader"), then focus alongside them as a timer runs. Personas gain XP from focus minutes and level up. Think: Pokémon meets a productivity timer. Growth that's invisible in real life becomes visible here.
+A body-doubling focus app for ADHD brains. You create personas representing versions of yourself you're building (e.g. "App Builder", "Avid Reader"), then focus alongside them as a timer runs. Personas gain XP from focus minutes and level up. Growth that's invisible in real life becomes visible here.
 
 ## Tech Stack
 
